@@ -36,8 +36,6 @@ class App extends Component {
       entries: [],
       amt_to_spend: 0,
       totals: [0,0,0,0,0,0,0,0,0,0,0,0,0],
-     // data: data,
-     loaded: false,
       current_columns: view,
       pivotBy: ["name"]//, "project"]
     };
@@ -49,7 +47,7 @@ componentDidMount() {
       axios
         .get(url_to_fetch_data)
         .then(function(result) {
-          // console.log("afer promise: " + JSON.parse(result));
+           console.log("after promise: " + result);
           _this.setState({
             data: result.data
           });
@@ -169,54 +167,36 @@ callMe(column, value) {
 
 render() {
 
- // if (this.state.data) {
-  return(
-    <div>
-    <h2>Filters</h2>
-     <label>CHF or Person Days:</label>
-        <select ref="column_type" onChange = {this.handleColType.bind(this)}>
-          <option value="chf_columns" selected>CHF</option>
-          <option value="persondays_columns">PD</option>
-        </select>
+  if (this.state.data) {
+    return(
+      <div>
+      <h2>Filters</h2>
+       <label>CHF or Person Days:</label>
+          <select ref="column_type" onChange = {this.handleColType.bind(this)}>
+            <option value="chf_columns" selected>CHF</option>
+            <option value="persondays_columns">PD</option>
+          </select>
 
-        <label>Group by:</label>
-        <select ref="groupby_type" onChange = {this.handleGroupBy.bind(this)}>
-          <option value="Resource" selected>Resource</option>
-          <option value="Project">Project</option>
-          <option value="Program">Program</option>
-          <option value="Manager">Manager</option>
-        </select>
-        <br/>
-    <hr/>
- { /* <ReactTable showPagination={false} data={this.state.data} filterable columns={this.state.current_columns} pivotBy={this.state.pivotBy} className="-striped -highlight" />
+          <label>Group by:</label>
+          <select ref="groupby_type" onChange = {this.handleGroupBy.bind(this)}>
+            <option value="Resource" selected>Resource</option>
+            <option value="Project">Project</option>
+            <option value="Program">Program</option>
+            <option value="Manager">Manager</option>
+          </select>
+          <br/>
+      <hr/>
+  
 
-  // <ReactTable showPagination={false} data={this.state.data} filterable 
-  // columns={this.state.current_columns} pivotBy={this.state.pivotBy} collapseOnDataChange ={false} className="-striped -highlight" />
-  */ }
-
- <ReactTable showPagination={false} data={this.state.data} filterable columns={this.state.current_columns} pivotBy={this.state.pivotBy} collapseOnDataChange={false} className="-striped -highlight" loading={!this.state.loaded}
-  onFetchData={ (state, instance) => {
-    // console.log("state.loaded is" , this.state.loaded);
-    if (!this.state.loaded) {
-      axios
-          .get(url_to_fetch_data)
-          .then( (result) => {
-            console.log("got it: ", result.data);
-            this.setState({
-              data: result.data,
-              loaded: true
-            })
-          })
-          }}}
-   />
-
-    </div>
-  );
+    <ReactTable showPagination={false} data={this.state.data} filterable 
+    columns={this.state.current_columns} pivotBy={this.state.pivotBy} collapseOnDataChange ={false} className="-striped -highlight" />
+      </div>
+    );
 
   }
-  // else
-  //   return(<div>NO WAY</div>);
-  // }
+  else
+    return(<div>NO WAY</div>);
+  }
 }
 
   
