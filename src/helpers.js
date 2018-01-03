@@ -3,12 +3,12 @@ import _ from "lodash";
 import matchSorter from 'match-sorter'
 
 
-function roundUp(num, precision) {
+export function roundUp(num, precision) {
   precision = Math.pow(10, precision)
   return Math.ceil(num * precision) / precision
 }
 
-function commaSeparateNumber(val){
+export function commaSeparateNumber(val){
     while (/(\d+)(\d{3})/.test(val.toString())){
       val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
     }
@@ -18,6 +18,7 @@ function commaSeparateNumber(val){
 export const data = [{
     name: 'Sajan Peter',
     project: 'PR-030852-R2K',
+    rate: 960.12,
     jan: {
       chf:12000,
       pd: 18,
@@ -54,13 +55,11 @@ export const data = [{
     },dec: {
       chf:12000,
       pd: 18,
-    },total: {
-      chf:144000,
-      pd: 216,
     }},
     {
     name: 'Sajan Peter',
     project: 'PR-016547-Recon_CCAR',
+    rate: 960.12,
     jan: {
       chf:6000,
       pd: 6,
@@ -97,13 +96,11 @@ export const data = [{
     },dec: {
       chf:6000,
       pd: 6,
-    },total: {
-      chf:72000,
-      pd: 72,
     }},
     {
     name: 'Bijal Shah',
     project: 'PR-030852-R2K',
+    rate: 688.4,
     jan: {
       chf:6000,
       pd: 9,
@@ -140,16 +137,14 @@ export const data = [{
     },dec: {
       chf:6000,
       pd: 9,
-    },total: {
-      chf:72000,
-      pd: 72,
     }},
     {
     name: 'Bijal Shah',
     project: 'PR-024578-RbPnl',
+    rate: 688.4,
     jan: {
-      chf:6000,
-      pd: 9,
+      chf:0,
+      pd: 0,
     },feb: {
       chf:6000,
       pd: 9,
@@ -183,189 +178,370 @@ export const data = [{
     },dec: {
       chf:6000,
       pd: 9,
-    },total: {
-      chf:72000,
-      pd: 72,
     }
   }];
 
 
 
+
 export const chf_columns = [{
-    Header: 'Resource',
-    accessor: 'name', // String-based value accessors!
-    // filterMethod: (filter, rows) =>
-    //                 matchSorter(rows, filter.value, { keys: ["name"] }),
-    // filterAll: true
-    
-  }, {
-    Header: 'Project',
-    accessor: 'project',
-    Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
-    // filterMethod: (filter, rows) => 
-    //                 matchSorter(rows, filter.value, { keys: ["project"] }),
-    // filterAll: true
-  }, {
-    id: 'Jan.CHF', // Required because our accessor is not a string
+    id: 'jan.chf', // Required because our accessor is not a string
     Header: 'Jan CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.jan.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     }
   }, {
-    id: 'Feb CHF', // Required because our accessor is not a string
+    id: 'feb.chf', // Required because our accessor is not a string
     Header: 'Feb CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.feb.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Mar CHF', // Required because our accessor is not a string
+    id: 'mar.chf', // Required because our accessor is not a string
     Header: 'Mar CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.mar.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Apr CHF', // Required because our accessor is not a string
+    id: 'apr.chf', // Required because our accessor is not a string
     Header: 'Apr CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.apr.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'May CHF', // Required because our accessor is not a string
+    id: 'may.chf', // Required because our accessor is not a string
     Header: 'May CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.may.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Jun CHF', // Required because our accessor is not a string
+    id: 'jun.chf', // Required because our accessor is not a string
     Header: 'Jun CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.jun.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Jul CHF', // Required because our accessor is not a string
+    id: 'jul.chf', // Required because our accessor is not a string
     Header: 'Jul CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.jul.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Aug CHF', // Required because our accessor is not a string
+    id: 'aug.chf', // Required because our accessor is not a string
     Header: 'Aug CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.aug.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Sep CHF', // Required because our accessor is not a string
+    id: 'sep.chf', // Required because our accessor is not a string
     Header: 'Sep CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.sep.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Oct CHF', // Required because our accessor is not a string
+    id: 'oct.chf', // Required because our accessor is not a string
     Header: 'Oct CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.oct.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Nov CHF', // Required because our accessor is not a string
+    id: 'nov.chf', // Required because our accessor is not a string
     Header: 'Nov CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.nov.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {row.value}
+          {commaSeparateNumber(row.value)}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Dec CHF', // Required because our accessor is not a string
+    id: 'dec.chf', // Required because our accessor is not a string
     Header: 'Dec CHF',
     filterable: false,
+    className: 'chf',
     accessor: d => d.dec.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
+          {commaSeparateNumber(row.value)}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'total.chf',
+    Header: 'Total CHF',
+    filterable: false,
+    className: 'chf',
+    //accessor: d => d.total.chf, // Custom value accessors!
+    accessor: d => roundUp(d.jan.chf + d.feb.chf + d.mar.chf + d.apr.chf + d.may.chf + d.jun.chf + 
+                  d.jul.chf + d.aug.chf + d.sep.chf + d.oct.chf + d.nov.chf + d.dec.chf,2),
+    Cell: row => {
+      return (
+        <span>
+          {commaSeparateNumber(row.value)}
+        </span>
+      );
+    },
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span align={"center"}>
+          {commaSeparateNumber(row.value)}
+        </span>
+      );
+    } // Custom value accessors!
+  }];
+
+/**************  PERSONDAYS COLUMNS *********************/
+
+export const persondays_columns = [{
+    id: 'jan.pd', // Required because our accessor is not a string
+    Header: 'Jan PD',
+    accessor: d => d.jan.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!// Custom value accessors!
+  }, {
+    id: 'feb.pd', // Required because our accessor is not a string
+    Header: 'Feb PD',
+    accessor: d => d.feb.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!// Custom value accessors!
+  }, {
+    id: 'mar.pd', // Required because our accessor is not a string
+    Header: 'Mar PD',
+    accessor: d => d.mar.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!// Custom value accessors!
+  }, {
+    id: 'apr.pd', // Required because our accessor is not a string
+    Header: 'Apr PD',
+    accessor: d => d.apr.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!// Custom value accessors!
+  }, {
+    id: 'may.pd', // Required because our accessor is not a string
+    Header: 'May PD',
+    accessor: d => d.may.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!// Custom value accessors!
+  }, {
+    id: 'jun.pd', // Required because our accessor is not a string
+    Header: 'Jun PD',
+    accessor: d => d.jun.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
           {row.value}
         </span>
       );
     } // Custom value accessors!
   }, {
-    id: 'Total CHF',  
-    Header: 'Total CHF',
+    id: 'jul.pd', // Required because our accessor is not a string
+    Header: 'Jul PD',
+    accessor: d => d.jul.pd,
     filterable: false,
-    accessor: d => d.total.chf, // Custom value accessors!
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'aug.pd', // Required because our accessor is not a string
+    Header: 'Aug PD',
+    accessor: d => d.aug.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'sep.pd', // Required because our accessor is not a string
+    Header: 'Sep PD',
+    accessor: d => d.sep.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'oct.pd', // Required because our accessor is not a string
+    Header: 'Oct PD',
+    accessor: d => d.oct.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'nov.pd', // Required because our accessor is not a string
+    Header: 'Nov PD',
+    accessor: d => d.nov.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'dec.pd', // Required because our accessor is not a string
+    Header: 'Dec PD',
+    accessor: d => d.dec.pd,
+    filterable: false,
+    aggregate: vals => _.sum(vals),
+    Aggregated: row => {
+      return (
+        <span>
+          {row.value}
+        </span>
+      );
+    } // Custom value accessors!
+  }, {
+    id: 'total.pd', // Required because our accessor is not a string
+    Header: 'Total PD',
+    accessor: d => roundUp(d.jan.pd + d.feb.pd + d.mar.pd + d.apr.pd + d.may.pd + d.jun.pd + 
+                  d.jul.pd + d.aug.pd + d.sep.pd + d.oct.pd + d.nov.pd + d.dec.pd,2),
+    filterable: false,
+    className: 'chf',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -376,69 +552,19 @@ export const chf_columns = [{
     } // Custom value accessors!
   }];
 
-export const persondays_columns = [{
+export const resource_pivot = [{
     Header: 'Resource',
-    accessor: 'name' // String-based value accessors!
+    accessor: 'name', // String-based value accessors!
   }, {
     Header: 'Project',
     accessor: 'project',
-    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-  }, {
-    id: 'Jan PD', // Required because our accessor is not a string
-    Header: 'Jan PD',
-    accessor: d => d.jan.pd // Custom value accessors!
-  }, {
-    id: 'Feb PD', // Required because our accessor is not a string
-    Header: 'Feb PD',
-    accessor: d => d.feb.pd // Custom value accessors!
-  }, {
-    id: 'Mar PD', // Required because our accessor is not a string
-    Header: 'Mar PD',
-    accessor: d => d.mar.pd // Custom value accessors!
-  }, {
-    id: 'Apr PD', // Required because our accessor is not a string
-    Header: 'Apr PD',
-    accessor: d => d.apr.pd // Custom value accessors!
-  }, {
-    id: 'May PD', // Required because our accessor is not a string
-    Header: 'May PD',
-    accessor: d => d.may.pd // Custom value accessors!
-  }, {
-    id: 'Jun PD', // Required because our accessor is not a string
-    Header: 'Jun PD',
-    accessor: d => d.jun.pd // Custom value accessors!
-  }, {
-    id: 'Jul PD', // Required because our accessor is not a string
-    Header: 'Jul PD',
-    accessor: d => d.jul.pd // Custom value accessors!
-  }, {
-    id: 'Aug PD', // Required because our accessor is not a string
-    Header: 'Aug PD',
-    accessor: d => d.aug.pd // Custom value accessors!
-  }, {
-    id: 'Sep PD', // Required because our accessor is not a string
-    Header: 'Sep PD',
-    accessor: d => d.sep.pd // Custom value accessors!
-  }, {
-    id: 'Oct PD', // Required because our accessor is not a string
-    Header: 'Oct PD',
-    accessor: d => d.oct.pd // Custom value accessors!
-  }, {
-    id: 'Nov PD', // Required because our accessor is not a string
-    Header: 'Nov PD',
-    accessor: d => d.nov.pd // Custom value accessors!
-  }, {
-    id: 'Dec PD', // Required because our accessor is not a string
-    Header: 'Dec PD',
-    accessor: d => d.dec.pd // Custom value accessors!
-  }, {
-    id: 'Total PD', // Required because our accessor is not a string
-    Header: 'Total PD',
-    accessor: d => d.total.pd // Custom value accessors!
-  },
-
-  {
-    Header: props => <span>Friend Age</span>, // Custom header components!
-    accessor: 'friend.age'
+    Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
   }];
 
+  export const project_pivot = [{
+    Header: 'Project',
+    accessor: 'project',
+    Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
+  }, {Header: 'Resource',
+    accessor: 'name', // String-based value accessors!
+  }];
