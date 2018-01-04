@@ -14,7 +14,8 @@ import axios from 'axios'
 //var helpers = require('./helpers.js');
 import {chf_columns, persondays_columns, project_pivot, resource_pivot, roundUp} from './helpers.js';
 
-const url_to_fetch_data = "/public/platform_services/platform_services_data.js";
+// const url_to_fetch_data = "/public/platform_services/platform_services_data.js";
+const url_to_fetch_data = "/files/platform_services/platform_services_data.js";
 
 //const roundUp = window.roundUp;
 
