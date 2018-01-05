@@ -188,13 +188,13 @@ export const chf_columns = [{
     id: 'jan.chf', // Required because our accessor is not a string
     Header: 'Jan CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.jan.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     }
@@ -202,13 +202,13 @@ export const chf_columns = [{
     id: 'feb.chf', // Required because our accessor is not a string
     Header: 'Feb CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.feb.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -216,13 +216,13 @@ export const chf_columns = [{
     id: 'mar.chf', // Required because our accessor is not a string
     Header: 'Mar CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.mar.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -230,13 +230,13 @@ export const chf_columns = [{
     id: 'apr.chf', // Required because our accessor is not a string
     Header: 'Apr CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.apr.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -244,13 +244,13 @@ export const chf_columns = [{
     id: 'may.chf', // Required because our accessor is not a string
     Header: 'May CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.may.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -258,13 +258,13 @@ export const chf_columns = [{
     id: 'jun.chf', // Required because our accessor is not a string
     Header: 'Jun CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.jun.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -272,13 +272,13 @@ export const chf_columns = [{
     id: 'jul.chf', // Required because our accessor is not a string
     Header: 'Jul CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.jul.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -286,13 +286,13 @@ export const chf_columns = [{
     id: 'aug.chf', // Required because our accessor is not a string
     Header: 'Aug CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.aug.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -300,13 +300,13 @@ export const chf_columns = [{
     id: 'sep.chf', // Required because our accessor is not a string
     Header: 'Sep CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.sep.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -314,13 +314,13 @@ export const chf_columns = [{
     id: 'oct.chf', // Required because our accessor is not a string
     Header: 'Oct CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.oct.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -328,13 +328,13 @@ export const chf_columns = [{
     id: 'nov.chf', // Required because our accessor is not a string
     Header: 'Nov CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.nov.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -342,13 +342,13 @@ export const chf_columns = [{
     id: 'dec.chf', // Required because our accessor is not a string
     Header: 'Dec CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     accessor: d => d.dec.chf, // Custom value accessors!
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     } // Custom value accessors!
@@ -356,14 +356,14 @@ export const chf_columns = [{
     id: 'total.chf',
     Header: 'Total CHF',
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     //accessor: d => d.total.chf, // Custom value accessors!
     accessor: d => roundUp(d.jan.chf + d.feb.chf + d.mar.chf + d.apr.chf + d.may.chf + d.jun.chf + 
                   d.jul.chf + d.aug.chf + d.sep.chf + d.oct.chf + d.nov.chf + d.dec.chf,2),
     Cell: row => {
       return (
         <span>
-          {commaSeparateNumber(row.value)}
+          {commaSeparateNumber(roundUp(row.value,0))}
         </span>
       );
     },
@@ -384,6 +384,7 @@ export const persondays_columns = [{
     Header: 'Jan PD',
     accessor: d => d.jan.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -397,6 +398,7 @@ export const persondays_columns = [{
     Header: 'Feb PD',
     accessor: d => d.feb.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -410,6 +412,7 @@ export const persondays_columns = [{
     Header: 'Mar PD',
     accessor: d => d.mar.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -423,6 +426,7 @@ export const persondays_columns = [{
     Header: 'Apr PD',
     accessor: d => d.apr.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -436,6 +440,7 @@ export const persondays_columns = [{
     Header: 'May PD',
     accessor: d => d.may.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -449,6 +454,7 @@ export const persondays_columns = [{
     Header: 'Jun PD',
     accessor: d => d.jun.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -462,6 +468,7 @@ export const persondays_columns = [{
     Header: 'Jul PD',
     accessor: d => d.jul.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -475,6 +482,7 @@ export const persondays_columns = [{
     Header: 'Aug PD',
     accessor: d => d.aug.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -488,6 +496,7 @@ export const persondays_columns = [{
     Header: 'Sep PD',
     accessor: d => d.sep.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -501,6 +510,7 @@ export const persondays_columns = [{
     Header: 'Oct PD',
     accessor: d => d.oct.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -514,6 +524,7 @@ export const persondays_columns = [{
     Header: 'Nov PD',
     accessor: d => d.nov.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -527,6 +538,7 @@ export const persondays_columns = [{
     Header: 'Dec PD',
     accessor: d => d.dec.pd,
     filterable: false,
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -541,7 +553,7 @@ export const persondays_columns = [{
     accessor: d => roundUp(d.jan.pd + d.feb.pd + d.mar.pd + d.apr.pd + d.may.pd + d.jun.pd + 
                   d.jul.pd + d.aug.pd + d.sep.pd + d.oct.pd + d.nov.pd + d.dec.pd,2),
     filterable: false,
-    className: 'chf',
+    className: 'align_right',
     aggregate: vals => _.sum(vals),
     Aggregated: row => {
       return (
@@ -555,10 +567,19 @@ export const persondays_columns = [{
 export const resource_pivot = [{
     Header: 'Resource',
     accessor: 'name', // String-based value accessors!
-  }, {
+  }, 
+  {
+    Header: 'Team',
+    accessor: 'team'
+  },
+  {
     Header: 'Project',
     accessor: 'project',
     Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
+  },
+  {
+    Header: 'Program',
+    accessor: 'program'
   }];
 
   export const project_pivot = [{
@@ -566,5 +587,44 @@ export const resource_pivot = [{
     accessor: 'project',
     Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
   }, {Header: 'Resource',
+    accessor: 'name', // String-based value accessors!
+  },
+  {
+    Header: 'Program',
+    accessor: 'program'
+  },
+  {
+    Header: 'Team',
+    accessor: 'team'
+  }];
+
+  export const team_pivot = [{
+    Header: 'Team',
+    accessor: 'team'
+  }, {Header: 'Resource',
+    accessor: 'name', // String-based value accessors!
+  }, {
+    Header: 'Project',
+    accessor: 'project',
+    Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
+  }, {
+    Header: 'Program',
+    accessor: 'program'
+  }];
+
+export const program_pivot = [{
+    Header: 'Program',
+    accessor: 'program'
+  },
+  {
+    Header: 'Project',
+    accessor: 'project',
+    Cell: props => <span className='number'>{props.value}</span>, // Custom cell components!
+  },
+  {
+    Header: 'Team',
+    accessor: 'team'
+  },
+  {Header: 'Resource',
     accessor: 'name', // String-based value accessors!
   }];

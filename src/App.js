@@ -12,7 +12,7 @@ import axios from 'axios'
 // import $ from 'jquery'; <- this works but am forgoing as Axios works
 
 //var helpers = require('./helpers.js');
-import {chf_columns, persondays_columns, project_pivot, resource_pivot, roundUp} from './helpers.js';
+import {chf_columns, persondays_columns, project_pivot, resource_pivot, program_pivot, team_pivot, roundUp} from './helpers.js';
 
 // const url_to_fetch_data = "/public/platform_services/platform_services_data.js";
 const url_to_fetch_data = "/files/platform_services/platform_services_data.js";
@@ -95,6 +95,20 @@ renderEditable(cellInfo) {
          //   console.log("Executing callback: data is " + JSON.stringify(data));
               this.setState({ data });
           }}
+
+          onFocus={e => {
+            //console.log("Got focus!");
+            //console.log(e);
+            //e.target.focus();
+            document.execCommand('selectAll',false,null);
+          }}
+
+          onClick={e => {
+            //console.log("Got focus!");
+            //console.log(e);
+            //e.target.focus();
+            document.execCommand('selectAll',false,null);
+          }}
         
            dangerouslySetInnerHTML={{
              __html: this.state.data[cellInfo.index][split[0]][split[1]]
@@ -116,10 +130,10 @@ handleColType(event) {
         pivotby = project_pivot;
         break;
       case "Program":
-        pivotby = resource_pivot;
+        pivotby = program_pivot;
         break;
-      case "Manager":
-        pivotby = resource_pivot;
+      case "Team":
+        pivotby = team_pivot;
         break;
   }
 
@@ -142,10 +156,12 @@ handleGroupBy(event) {
         pivotBy_cols = ["project", "name"];
         break;
       case "Program":
-        pivotby = resource_pivot;
+        pivotby = program_pivot;
+        pivotBy_cols = ["program", "project", "team", "name"];
         break;
-      case "Manager":
-        pivotby = resource_pivot;
+      case "Team":
+        pivotby = team_pivot;
+        pivotBy_cols = ["team", "name", "project", "program"];
         break;
   }
 
@@ -183,9 +199,9 @@ render() {
         <label>Group by:</label>
         <select ref="groupby_type" onChange = {this.handleGroupBy.bind(this)}>
           <option value="Resource" selected>Resource</option>
+          <option value="Team">Team</option>
           <option value="Project">Project</option>
           <option value="Program">Program</option>
-          <option value="Manager">Manager</option>
         </select>
         <br/>
     <hr/>
